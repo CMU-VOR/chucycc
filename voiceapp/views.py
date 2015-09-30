@@ -6,11 +6,18 @@ def index(request):
 	context={}
 	if request.method == "GET":
 		if 'input' in request.GET and request.GET['input']!='':
-			try:
-				result = Keyword.objects.get(keyword__iexact=request.GET['input'])
-				result = result.content_set.all()
-				context['result'] = result
-			except Keyword.DoesNotExist:
+			words = request.GET['input'].split()
+			result = []
+			for w in words:
+				try:
+					a = Keyword.objects.get(keyword__icontains=w)
+					a = a.content_set.all()
+					for i in a:
+						result.append(i)
+				except Keyword.DoesNotExist:
+					pass
+			context['result'] = result
+			if len(result) == 0:
 				context['none'] = 'None'
 			context['input'] = request.GET['input']
 	return render(request, 'voiceapp/index.html',context)
