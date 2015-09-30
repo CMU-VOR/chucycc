@@ -1,0 +1,29 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.result {
+	margin-top: 50px;
+	text-align: left;
+}
+
+.picture {
+	margin-top: 50px;
+}
+
+.input {
+	width: 80%;
+	float: left;
+}
+.submit {
+	width: 18%;
+	float: right;
+}
+
+.center {
+	text-align: center;
+}

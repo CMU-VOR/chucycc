@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+
+  <title>Voice App</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'voiceapp/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'voiceapp/css/index.css' %}" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse --> </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="starter-template">
+      <div class="row">
+
+        <div class="col-md-6 col-md-push-3">
+        <input type="image" name="audio" src="{% static 'voiceapp/images/microphone.png' %}" border="0" alt="audio" onclick="audiobutton()" />
+          <form method="get" action="" id="inputform">
+            <input type="text" name="input" class="input form-control" value="{{input}}"/>
+            <input type="submit" value="Submit" class="submit form-control"/>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="picture col-md-6 col-md-push-3">
+          <form method="get" action="" id="mapform">
+          <input type='hidden' id='input-field' name="input" value="" />
+          <img src="{% static 'voiceapp/images/airplane.gif' %}" alt="Airplane" usemap="#airplane" style="width:600px;height:349px;">
+
+          <map name="airplane">
+            <area shape="rect" coords="114,1,228,26" alt="Airplane" onClick="submitMapForm('airplane');">
+            <area shape="rect" coords="70,119,160,146" alt="cockpit" onClick="submitMapForm('cockpit');">
+            <area shape="rect" coords="352,14,430,41" alt="aileron" onClick="submitMapForm('aileron');">
+            <area shape="rect" coords="396,204,493,232" alt="fuselage" onClick="submitMapForm('fuselage');">
+            <area shape="rect" coords="493,181,540,206" alt="tail" onClick="submitMapForm('tail');">
+            <area shape="rect" coords="438,327,496,349" alt="wing" onClick="submitMapForm('wing');">
+            <area shape="rect" coords="250,328,366,348" alt="engine" onClick="submitMapForm('engine');">
+            <area shape="rect" coords="26,302,85,323" alt="nose" onClick="submitMapForm('nose');">
+            </map>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="result col-md-6 col-md-push-3">
+        {% if none %}
+        <h1 class="center">{{none}}</h1>
+        {% else %}
+          {% for item in result%}
+          <div class="panel panel-default">
+            <div class="panel-body">{{item}}</div>
+          </div>
+          {% endfor %}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'voiceapp/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'voiceapp/js/main.js' %}"></script>
+</body>
+</html>
