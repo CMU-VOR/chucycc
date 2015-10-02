@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from tokenization import Tokenization
 from models import *
 
 # Create your views here.
 def index(request):
 	context={}
+	token = Tokenization;
 	if request.method == "GET":
 		if 'input' in request.GET and request.GET['input']!='':
-			words = request.GET['input'].split()
+			text_string = request.GET['input']
+			words = token.tokenization(text_string)
 			result = []
 			for w in words:
 				try:
