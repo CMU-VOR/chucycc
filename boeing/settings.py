@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'voiceapp',
+    'voice_work_order',
 )
 
 MIDDLEWARE_CLASSES = (

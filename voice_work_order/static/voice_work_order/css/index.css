@@ -1,0 +1,47 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.result {
+	margin-top: 50px;
+	text-align: left;
+}
+
+.picture {
+	margin-top: 50px;
+}
+
+.input {
+	width: 80%;
+	float: left;
+}
+.submit {
+	width: 18%;
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.table {
+	width: 100%;
+}
+
+.table>tbody>tr>th {
+	text-align: center;
+}
+
+.table>tbody>tr>td {
+	border-top: 0px;
+}
+
+.navbar-nav>li>span{
+	margin-top:10px;
+	margin-bottom:10px;
+	line-height:20px;
+}

@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from . import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', include('voiceapp.urls', namespace='voiceapp')),
-    url(r'^workorder/', include('voice_work_order.urls', namespace='workorder')),
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^session/(?P<session_id>\d+)$',views.session, name='session'),
+    url(r'^session/(?P<session_id>\d+)/(?P<ordertype>cos)$',views.workorder, name='cos'),
+    url(r'^session/(?P<session_id>\d+)/(?P<ordertype>mech)$',views.workorder, name='mech'),
+    url(r'^session/(?P<session_id>\d+)/(?P<ordertype>it)$',views.workorder, name='it'),
 ]
